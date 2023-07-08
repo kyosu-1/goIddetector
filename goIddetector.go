@@ -2,7 +2,6 @@ package goIddetector
 
 import (
 	"go/ast"
-	"strings"
 
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/analysis/passes/inspect"
@@ -29,8 +28,8 @@ func run(pass *analysis.Pass) (interface{}, error) {
 	inspect.Preorder(nodeFilter, func(n ast.Node) {
 		switch n := n.(type) {
 		case *ast.Ident:
-			if strings.Contains(n.Name, "Id") {
-				pass.Reportf(n.Pos(), "identifier contains 'Id': %s", n.Name)
+			if n.Name == "Id" {
+				pass.Reportf(n.Pos(), "Id should be an ID")
 			}
 		}
 	})

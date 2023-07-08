@@ -2,6 +2,6 @@ package a
 
 func f() {
 	// The pattern can be written in regular expression.
-	var gopher int // want "pattern"
-	print(gopher)  // want "identifier is gopher"
+	var Id int // want "Id should be an ID"
+	print(Id) // want "Id should be an ID"
 }
